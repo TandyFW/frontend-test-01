@@ -1,11 +1,14 @@
+import { Container } from '@material-ui/core';
 import React, { useState } from 'react';
-import logo from '../images/logo.png'
+import logo from '../images/logo.png';
+import '../styles/Header.css';
 
 function Header() {
   const [inputSearch, setInputSearch] = useState('');
   return (
-    <header>
-      <img src={logo} alt="logo" />
+    <Container maxWidth='1sm'>
+    <header className="header">
+      <img src={logo} alt="logo" className='logo-img' />
       <input
         type='text'
         placeholder='Search...'
@@ -13,6 +16,7 @@ function Header() {
         onChange={(e) => setInputSearch(e.target.value)}
       />
     </header>
+    </Container>
   );
 }
 

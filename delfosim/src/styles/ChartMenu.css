@@ -1,0 +1,14 @@
+.container-header-chart {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid blue;
+}
+.title {
+  border: 1px solid red;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 20px;
+  font-size: 22px;
+  color: rgb(128, 123, 123);
+}

@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   charts: [],
+  currentChart: [],
 };
 
 function chartReducer(state = INITIAL_STATE, action) {

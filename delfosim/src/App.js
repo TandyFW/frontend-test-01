@@ -1,11 +1,18 @@
+import React from 'react';
+import { Switch } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import CreateChart from './pages/CreateChart';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <main className="App">
-      <Header />
-    </main>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={ Home } />
+        <Route path='/create' component={ CreateChart } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
