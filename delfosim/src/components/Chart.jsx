@@ -9,8 +9,9 @@ const options = {
   // chart: {
   //   type: 'collumn',
   // },
-  yAxis: {
-    tickPositioner: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul'],
+  xAxis: {
+    tickInterval: 24 * 3600 * 1000, // one day
+    type: 'datetime',
   },
   title: {
     text: '',
@@ -19,10 +20,14 @@ const options = {
     {
     name: 'Profit',
     data: [100, 25, 40, 60, 30, 100, 120],
+    pointStart: Date.UTC(2010, 0, 1),
+    pointInterval: 24 * 3600 * 1000,
     },
     {
     name: 'Second',
     data: [50, 45, 10, 35, 45, 80, 100],
+    pointStart: Date.UTC(2010, 0, 1),
+    pointInterval: 24 * 3600 * 1000,
     }
   ]
 };
