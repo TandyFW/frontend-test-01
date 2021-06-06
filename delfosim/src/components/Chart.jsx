@@ -9,6 +9,9 @@ const options = {
   // chart: {
   //   type: 'collumn',
   // },
+  yAxis: {
+    tickPositioner: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul'],
+  },
   title: {
     text: '',
   },
