@@ -41,3 +41,8 @@
   padding: 40px;
   border: 1px solid black;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
