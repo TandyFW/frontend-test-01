@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import { FormControl, FormControlLabel, FormLabel, Input, InputLabel, Radio, RadioGroup } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SeriesChart from '../components/SeriesChart';
 
 function CreateChart() {
@@ -8,7 +10,8 @@ function CreateChart() {
   const MONTH_TIME = DAY_TIME * 30;
   const YEAR_TIME = DAY_TIME * 365;
   const [series, setSeries] = useState([0]);
-  const [selectedValue, setSelectedValue] = React.useState('day');
+  const [selectedValue, setSelectedValue] = useState('day');
+  const [backHome, setBackHome] = useState(false);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -20,7 +23,11 @@ function CreateChart() {
 
   return (
     <div>
+      {backHome ? <Redirect to='/' /> : ''}
       <form className="form">
+        <button type='button' onClick={() => setBackHome(true)}>
+          <ArrowBackIcon />
+        </button>
         <FormControl>
           <InputLabel htmlFor="title">Title</InputLabel>
           <Input id="title" />

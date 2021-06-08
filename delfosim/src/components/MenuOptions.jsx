@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
@@ -22,16 +22,9 @@ function MenuOptions() {
     setAnchorEl(null);
   };
 
-  useEffect(() => {
-    console.log(menuChoice);
-    if (menuChoice === 'Criar') {
-      console.log('dentro do if');
-      <Redirect to='/create' />
-    }
-  }, [menuChoice]);
-
   return(
     <div>
+      { menuChoice === 'Criar' ? <Redirect to='/create' /> : '' }
       <IconButton
           aria-label="more"
           aria-controls="long-menu"
