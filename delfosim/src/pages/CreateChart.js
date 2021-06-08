@@ -9,9 +9,14 @@ function CreateChart() {
   const WEEK_TIME = DAY_TIME * 7;
   const MONTH_TIME = DAY_TIME * 30;
   const YEAR_TIME = DAY_TIME * 365;
+
   const [series, setSeries] = useState([0]);
+  const [title, setTitle] = useState('');
   const [selectedValue, setSelectedValue] = useState('day');
   const [backHome, setBackHome] = useState(false);
+  const [name, setName] = useState(['']);
+  const [values, setValues] = useState(['']);
+  const [date, setDate] = useState(['']);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -30,7 +35,7 @@ function CreateChart() {
         </button>
         <FormControl>
           <InputLabel htmlFor="title">Title</InputLabel>
-          <Input id="title" />
+          <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
         </FormControl>
         <FormControl component="fieldset">
           <FormLabel component="legend">Interval</FormLabel>
@@ -41,7 +46,12 @@ function CreateChart() {
             <FormControlLabel value="year" control={<Radio />} label="Years" />
           </RadioGroup>
         </FormControl>
-        { series.map((serie) => <SeriesChart onClick={handleClick} serie={serie} lastSerie={series[series.length - 1]} />) }
+        { series.map((serie) => <SeriesChart
+          onClick={handleClick}
+          setStates={{setName, setValues, setDate}}
+          value={{name, values, date}}
+          serie={serie}
+          lastSerie={series[series.length - 1]} />) }
       </form>
     </div>
   );
