@@ -9,6 +9,8 @@ function SeriesChart({ onClick, serie, lastSerie, setStates, value }) {
   const {name, values, date} = value;
   const {setName, setValues, setDate} = setStates;
   const [thisName, setThisName] = useState('');
+  const [thisValues, setThisValues] = useState('');
+  const [thisDate, setThisDate] = useState(TODAY_DATE);
 
   const handleChange = (value, func, newValue, localSet) => {
     console.log(value, newValue);
@@ -22,11 +24,19 @@ function SeriesChart({ onClick, serie, lastSerie, setStates, value }) {
     <>
     <FormControl>
       <InputLabel htmlFor="name">Name</InputLabel>
-      <Input id='name' value={thisName} onChange={(e) => handleChange(name, setName, e.target.value, setThisName)} />
+      <Input
+        id='name'
+        value={thisName}
+        onChange={(e) => handleChange(name, setName, e.target.value, setThisName)}
+      />
     </FormControl>
     <FormControl>
       <InputLabel htmlFor="values">Values</InputLabel>
-      <Input id='values'/>
+      <Input
+        id='values'
+        value={thisValues}
+        onChange={(e) => handleChange(values, setValues, e.target.value, setThisValues)}
+      />
       <FormHelperText id="my-helper-text">Separe os valores por vírgula. Ex: 4, 8, 12, 12.8, 13...</FormHelperText>
     </FormControl>
     <form noValidate>
@@ -34,7 +44,8 @@ function SeriesChart({ onClick, serie, lastSerie, setStates, value }) {
         id="date"
         label="Start Date"
         type="date"
-        defaultValue={ TODAY_DATE }
+        value={ thisDate }
+        onChange={(e) => handleChange(date, setDate, e.target.value, setThisDate)}
         InputLabelProps={{
           shrink: true,
         }}
