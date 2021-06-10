@@ -13,11 +13,15 @@ function SeriesChart({ onClick, serie, lastSerie, setStates, value }) {
   const [thisDate, setThisDate] = useState(TODAY_DATE);
 
   const handleChange = (value, func, newValue, localSet) => {
-    console.log(value, newValue);
     const nValue = value;
     nValue.splice(serie, 1, newValue);
     func(nValue);
     localSet(newValue);
+  }
+
+  const handleClick = () => {
+    setDate([...date, TODAY_DATE]);
+    onClick();
   }
 
   return (
@@ -52,7 +56,7 @@ function SeriesChart({ onClick, serie, lastSerie, setStates, value }) {
       />
     </form>
     { serie === lastSerie ?
-    <IconButton onClick={onClick}>
+    <IconButton onClick={handleClick}>
       <AddIcon />
     </IconButton>
     : ''}

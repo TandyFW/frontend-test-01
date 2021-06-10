@@ -1,7 +1,4 @@
-const addChart = (chart) => ({
+export const addChart = (chart) => ({
   type: 'ADD_CHART',
   payload: chart,
-
 });
-
-export default addChart;
